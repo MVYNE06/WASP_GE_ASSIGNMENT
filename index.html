@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VESPID: The Sting of Justice</title>
+    <!-- Import comic-style fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Spline 3D Viewer Script -->
+    <script type="module" src="https://cdn.spline.design/@splinetool/viewer@2.0.14/build/spline-viewer.js"></script>
+
+    <style>
+        :root {
+            --yellow: #FFCC00;
+            --black: #1A1A1A;
+            --white: #F4F4F4;
+            --red: #E63946;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--white);
+            background-image: radial-gradient(var(--black) 1px, transparent 0);
+            background-size: 15px 15px; /* Halftone comic dot effect */
+            font-family: 'Comic Neue', cursive, sans-serif;
+            color: var(--black);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--white);
+            border: 6px solid var(--black);
+            box-shadow: 15px 15px 0px var(--black);
+            padding: 2rem;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Bangers', cursive;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- TITLE SECTION --- */
+        .title-banner {
+            text-align: center;
+            background: var(--yellow);
+            border: 4px solid var(--black);
+            padding: 1rem;
+            margin-bottom: 2rem;
+            transform: rotate(-1deg);
+        }
+
+        .title-banner h1 {
+            font-size: 4rem;
+            color: var(--red);
+            text-shadow: 3px 3px 0px var(--black);
+        }
+
+        /* --- SPLINE 3D HERO SECTION --- */
+        .hero-model-container {
+            width: 100%;
+            height: 500px;
+            border: 5px solid var(--black);
+            margin-bottom: 2rem;
+            position: relative;
+            background: #2a2a2a;
+            box-shadow: 10px 10px 0px var(--black);
+            overflow: hidden;
+        }
+
+        spline-viewer {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* --- COMIC PANELS (TEXT & LORE) --- */
+        .comic-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .comic-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .panel {
+            background: var(--white);
+            border: 4px solid var(--black);
+            padding: 1.5rem;
+            box-shadow: 8px 8px 0px var(--black);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .panel:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0px var(--black);
+        }
+
+        .panel h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--yellow);
+            -webkit-text-stroke: 1px var(--black);
+        }
+
+        .highlight {
+            background: var(--yellow);
+            font-weight: bold;
+            padding: 0 5px;
+        }
+
+        /* --- STORYBOARD IMAGE PLACEHOLDERS --- */
+        .storyboard-section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            background: var(--black);
+            color: var(--white);
+            padding: 10px;
+        }
+
+        .storyboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border: 4px dashed var(--black);
+            background: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-family: 'Bangers', cursive;
+            font-size: 1.5rem;
+            color: #555;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none; /* Hidden until you add a src */
+        }
+
+        /* Subtle caption for placeholders */
+        .image-placeholder::after {
+            content: "Replace with <img src='...'>";
+            position: absolute;
+            bottom: 10px;
+            font-family: 'Comic Neue', sans-serif;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header class="title-banner">
+            <h1>VESPID: The Enforcer</h1>
+            <p><strong>Justice has a new sting.</strong></p>
+        </header>
+
+        <!-- 3D Model Showcase -->
+        <div class="hero-model-container">
+            <spline-viewer url="https://prod.spline.design/fk97BMS2fW9LeVuR/scene.splinecode"></spline-viewer>
+        </div>
+
+        <!-- Backstory & Powers Grid -->
+        <div class="comic-grid">
+            <div class="panel">
+                <h2>The Origin</h2>
+                <p>Before the mask, there was just an entomology lab, a highly illegal genetic sequencer, and a swarm of mutated <em>Vespidae</em>. When a rogue syndicate attempted to steal the research, one scientist was caught in the crossfire of shattered glass and experimental neuro-toxins.</p>
+                <br>
+                <p>They thought he was dead. Instead, the venom rewrote his DNA. Now, he patrols the neon-lit alleyways of the city, hunting those who prey on the weak.</p>
+            </div>
+
+            <div class="panel">
+                <h2>Vow of Justice</h2>
+                <p>The city's underworld is a hive of corruption, but <span class="highlight">Vespid answers to a higher moral law.</span> He stands as the ultimate arbiter of justice, wrapping his ruthless methods in a strict code: he only strikes those who have poisoned society.</p>
+                <br>
+                <p><strong>Abilities:</strong></p>
+                <ul>
+                    <li><strong>Neuro-Venom Spit:</strong> A highly corrosive, localized projectile that melts through armor and weapons.</li>
+                    <li><strong>Paralytic Sting:</strong> A close-combat strike that locks the victim's nervous system for 12 hours. Zero casualties. Maximum justice.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Storyboard / Doodle Area -->
+        <div class="storyboard-section">
+            <h2>Concept Art & Storyboards</h2>
+            <div class="storyboard-grid">
+                
+                <!-- Placeholder 1 -->
+                <div class="panel image-placeholder">
+                    Upload Sketch 1 Here
+                    <!-- To add your image, uncomment the line below and add your image file path -->
+                    <!-- <img src="your-image-1.jpg" style="display: block;"> -->
+                </div>
+
+                <!-- Placeholder 2 -->
+                <div class="panel image-placeholder">
+                    Upload Sketch 2 Here
+                    <!-- <img src="your-image-2.jpg" style="display: block;"> -->
+                </div>
+
+                <!-- Placeholder 3 -->
+                <div class="panel image-placeholder">
+                    Upload Sketch 3 Here
+                    <!-- <img src="your-image-3.jpg" style="display: block;"> -->
+                </div>
+
+                <!-- Placeholder 4 -->
+                <div class="panel image-placeholder">
+                    Upload Sketch 4 Here
+                    <!-- <img src="your-image-4.jpg" style="display: block;"> -->
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
