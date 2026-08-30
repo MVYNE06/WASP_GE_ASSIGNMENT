@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VESPID: The Sting of Justice</title>
-    <!-- Import comic-style fonts -->
+    <title>VESPID: Project Specimen 04</title>
+    <!-- Comic fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- Spline 3D Viewer Script -->
@@ -16,6 +16,7 @@
             --black: #1A1A1A;
             --white: #F4F4F4;
             --red: #E63946;
+            --dark-gray: #2b2b2b;
         }
 
         * {
@@ -26,11 +27,11 @@
 
         body {
             background-color: var(--white);
-            background-image: radial-gradient(var(--black) 1px, transparent 0);
-            background-size: 15px 15px; /* Halftone comic dot effect */
+            background-image: radial-gradient(var(--black) 1.5px, transparent 0);
+            background-size: 18px 18px;
             font-family: 'Comic Neue', cursive, sans-serif;
             color: var(--black);
-            line-height: 1.6;
+            line-height: 1.5;
             padding: 20px;
         }
 
@@ -49,14 +50,14 @@
             letter-spacing: 2px;
         }
 
-        /* --- TITLE SECTION --- */
+        /* --- TITLE BANNER --- */
         .title-banner {
             text-align: center;
             background: var(--yellow);
             border: 4px solid var(--black);
             padding: 1rem;
             margin-bottom: 2rem;
-            transform: rotate(-1deg);
+            transform: rotate(-0.5deg);
         }
 
         .title-banner h1 {
@@ -65,14 +66,18 @@
             text-shadow: 3px 3px 0px var(--black);
         }
 
-        /* --- SPLINE 3D HERO SECTION --- */
+        .subtitle {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* --- 3D MODEL SECTION --- */
         .hero-model-container {
             width: 100%;
-            height: 500px;
+            height: 450px;
             border: 5px solid var(--black);
             margin-bottom: 2rem;
-            position: relative;
-            background: #2a2a2a;
+            background: var(--dark-gray);
             box-shadow: 10px 10px 0px var(--black);
             overflow: hidden;
         }
@@ -82,7 +87,7 @@
             height: 100%;
         }
 
-        /* --- COMIC PANELS (TEXT & LORE) --- */
+        /* --- COMIC PANELS --- */
         .comic-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -101,29 +106,26 @@
             border: 4px solid var(--black);
             padding: 1.5rem;
             box-shadow: 8px 8px 0px var(--black);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .panel:hover {
-            transform: translate(-4px, -4px);
-            box-shadow: 12px 12px 0px var(--black);
         }
 
         .panel h2 {
             font-size: 2rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             color: var(--yellow);
             -webkit-text-stroke: 1px var(--black);
         }
 
-        .highlight {
-            background: var(--yellow);
-            font-weight: bold;
-            padding: 0 5px;
+        .panel ul {
+            margin-left: 1.2rem;
+            margin-top: 0.5rem;
         }
 
-        /* --- STORYBOARD IMAGE PLACEHOLDERS --- */
-        .storyboard-section h2 {
+        /* --- INSPIRATION GALLERY --- */
+        .inspiration-section {
+            margin-top: 2rem;
+        }
+
+        .inspiration-section h2 {
             font-size: 2.5rem;
             text-align: center;
             margin-bottom: 1.5rem;
@@ -132,47 +134,38 @@
             padding: 10px;
         }
 
-        .storyboard-grid {
+        .inspiration-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
         }
 
-        .image-placeholder {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            border: 4px dashed var(--black);
-            background: #e0e0e0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        @media (max-width: 768px) {
+            .inspiration-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .inspiration-card {
+            border: 4px solid var(--black);
+            background: var(--white);
+            box-shadow: 6px 6px 0px var(--black);
             text-align: center;
-            font-family: 'Bangers', cursive;
-            font-size: 1.5rem;
-            color: #555;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
+            padding: 10px;
         }
 
-        .image-placeholder img {
+        .inspiration-card img {
             width: 100%;
-            height: 100%;
+            height: 200px;
             object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: none; /* Hidden until you add a src */
+            border: 2px solid var(--black);
+            margin-bottom: 8px;
         }
 
-        /* Subtle caption for placeholders */
-        .image-placeholder::after {
-            content: "Replace with <img src='...'>";
-            position: absolute;
-            bottom: 10px;
-            font-family: 'Comic Neue', sans-serif;
-            font-size: 0.9rem;
-            font-weight: bold;
+        .inspiration-card span {
+            font-family: 'Bangers', cursive;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -181,64 +174,56 @@
     <div class="container">
         
         <header class="title-banner">
-            <h1>VESPID: The Enforcer</h1>
-            <p><strong>Justice has a new sting.</strong></p>
+            <h1>VESPID</h1>
+            <p class="subtitle">Public Status: Escaped Lab Experiment</p>
         </header>
 
-        <!-- 3D Model Showcase -->
+        <!-- 3D Model Display -->
         <div class="hero-model-container">
             <spline-viewer url="https://prod.spline.design/fk97BMS2fW9LeVuR/scene.splinecode"></spline-viewer>
         </div>
 
-        <!-- Backstory & Powers Grid -->
+        <!-- Story Content -->
         <div class="comic-grid">
             <div class="panel">
-                <h2>The Origin</h2>
-                <p>Before the mask, there was just an entomology lab, a highly illegal genetic sequencer, and a swarm of mutated <em>Vespidae</em>. When a rogue syndicate attempted to steal the research, one scientist was caught in the crossfire of shattered glass and experimental neuro-toxins.</p>
+                <h2>The Backstory</h2>
+                <p>The corporation called it gene-splicing research. He called it a cage. Subjected to illegal cross-breeding trials combining wasp and tiger beetle DNA, he lived through months of agonizing cellular restructuring.</p>
                 <br>
-                <p>They thought he was dead. Instead, the venom rewrote his DNA. Now, he patrols the neon-lit alleyways of the city, hunting those who prey on the weak.</p>
+                <p>When the facility security protocol failed during a midnight blackout, he didn't run to save the world—he broke out to burn the lab to the ground. Left with animal instincts, hybrid biology, and a deep grudge against the system, he chose the streets over captivity.</p>
             </div>
 
             <div class="panel">
-                <h2>Vow of Justice</h2>
-                <p>The city's underworld is a hive of corruption, but <span class="highlight">Vespid answers to a higher moral law.</span> He stands as the ultimate arbiter of justice, wrapping his ruthless methods in a strict code: he only strikes those who have poisoned society.</p>
+                <h2>The Anti-Hero</h2>
+                <p>The media paints him as a dangerous monster on the loose, and the police treat him as public enemy number one. But he operates in the dark gray areas of justice—protecting the helpless by dealing with the scum the law can't touch, entirely on his own brutal terms.</p>
                 <br>
-                <p><strong>Abilities:</strong></p>
+                <p><strong>Powers & Weaknesses:</strong></p>
                 <ul>
-                    <li><strong>Neuro-Venom Spit:</strong> A highly corrosive, localized projectile that melts through armor and weapons.</li>
-                    <li><strong>Paralytic Sting:</strong> A close-combat strike that locks the victim's nervous system for 12 hours. Zero casualties. Maximum justice.</li>
+                    <li><strong>Wasp & Tiger Beetle DNA:</strong> Insane sprinting speeds and devastating mandibles.</li>
+                    <li><strong>Venom Spit:</strong> Paralyzes targets on impact.</li>
+                    <li><strong>The Blind Spot:</strong> Extreme speeds make him temporarily blind.</li>
+                    <li><strong>Thermal Vulnerability:</strong> Weak to low temperatures, countered by a warm, moth-inspired thermal cape.</li>
                 </ul>
             </div>
         </div>
 
-        <!-- Storyboard / Doodle Area -->
-        <div class="storyboard-section">
-            <h2>Concept Art & Storyboards</h2>
-            <div class="storyboard-grid">
+        <!-- Inspiration Images Section -->
+        <div class="inspiration-section">
+            <h2>Concept & Reference Inspiration</h2>
+            <div class="inspiration-grid">
                 
-                <!-- Placeholder 1 -->
-                <div class="panel image-placeholder">
-                    Upload Sketch 1 Here
-                    <!-- To add your image, uncomment the line below and add your image file path -->
-                    <!-- <img src="your-image-1.jpg" style="display: block;"> -->
+                <div class="inspiration-card">
+                    <img src="inspo.webp" alt="General Inspiration">
+                    <span>Inspiration Board</span>
                 </div>
 
-                <!-- Placeholder 2 -->
-                <div class="panel image-placeholder">
-                    Upload Sketch 2 Here
-                    <!-- <img src="your-image-2.jpg" style="display: block;"> -->
+                <div class="inspiration-card">
+                    <img src="tiger_beetle.webp" alt="Tiger Beetle Reference">
+                    <span>Tiger Beetle DNA</span>
                 </div>
 
-                <!-- Placeholder 3 -->
-                <div class="panel image-placeholder">
-                    Upload Sketch 3 Here
-                    <!-- <img src="your-image-3.jpg" style="display: block;"> -->
-                </div>
-
-                <!-- Placeholder 4 -->
-                <div class="panel image-placeholder">
-                    Upload Sketch 4 Here
-                    <!-- <img src="your-image-4.jpg" style="display: block;"> -->
+                <div class="inspiration-card">
+                    <img src="wasp.webp" alt="Wasp Reference">
+                    <span>Wasp DNA</span>
                 </div>
 
             </div>
