@@ -92,7 +92,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
 
         @media (max-width: 768px) {
@@ -120,12 +120,12 @@
             margin-top: 0.5rem;
         }
 
-        /* --- INSPIRATION GALLERY --- */
-        .inspiration-section {
-            margin-top: 2rem;
+        /* --- DNA SECTION --- */
+        .dna-section {
+            margin-bottom: 3rem;
         }
 
-        .inspiration-section h2 {
+        .dna-section h2 {
             font-size: 2.5rem;
             text-align: center;
             margin-bottom: 1.5rem;
@@ -134,38 +134,98 @@
             padding: 10px;
         }
 
-        .inspiration-grid {
+        .dna-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
         }
 
-        @media (max-width: 768px) {
-            .inspiration-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .inspiration-card {
+        .dna-card {
             border: 4px solid var(--black);
             background: var(--white);
             box-shadow: 6px 6px 0px var(--black);
             text-align: center;
             padding: 10px;
+            display: flex;
+            flex-direction: column;
         }
 
-        .inspiration-card img {
+        .dna-card img {
             width: 100%;
-            height: 200px;
+            height: 180px;
             object-fit: cover;
             border: 2px solid var(--black);
             margin-bottom: 8px;
         }
 
-        .inspiration-card span {
+        .dna-card span {
             font-family: 'Bangers', cursive;
             font-size: 1.3rem;
             letter-spacing: 1px;
+            margin-top: auto;
+        }
+
+        /* Blurred Classified Cards */
+        .classified-card {
+            position: relative;
+            background: #888;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 236px; /* Matches roughly the height of image + text */
+            overflow: hidden;
+        }
+
+        .classified-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(45deg, #555, #555 10px, #666 10px, #666 20px);
+            filter: blur(4px);
+        }
+
+        .classified-tag {
+            position: relative;
+            z-index: 2;
+            background: var(--yellow);
+            border: 3px solid var(--black);
+            padding: 10px;
+            transform: rotate(-4deg);
+        }
+
+        .classified-tag strong {
+            display: block;
+            font-family: 'Bangers', cursive;
+            font-size: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .classified-tag small {
+            font-family: 'Comic Neue', cursive;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* --- BIG INSPIRATION POSTER --- */
+        .big-inspo-section {
+            border: 6px solid var(--black);
+            background: var(--white);
+            padding: 15px;
+            box-shadow: 10px 10px 0px var(--black);
+            text-align: center;
+        }
+
+        .big-inspo-section h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--black);
+        }
+
+        .big-inspo-section img {
+            width: 100%;
+            height: auto; /* Prevents cropping */
+            display: block;
+            border: 4px solid var(--black);
         }
     </style>
 </head>
@@ -187,46 +247,63 @@
         <div class="comic-grid">
             <div class="panel">
                 <h2>The Backstory</h2>
-                <p>The corporation called it gene-splicing research. He called it a cage. Subjected to illegal cross-breeding trials combining wasp and tiger beetle DNA, he lived through months of agonizing cellular restructuring.</p>
+                <p>The lab called it gene splicing research. He called it a cage. They forced him through illegal cross breeding trials using wasp and tiger beetle DNA. He survived months of pure agony as his cells mutated.</p>
                 <br>
-                <p>When the facility security protocol failed during a midnight blackout, he didn't run to save the world—he broke out to burn the lab to the ground. Left with animal instincts, hybrid biology, and a deep grudge against the system, he chose the streets over captivity.</p>
+                <p>When the power grid failed during a storm he didn't stick around to save the world. He broke out to burn the lab down. Now he has wild animal instincts a hybrid body and a deep grudge against the system. He chose the streets over a cage.</p>
             </div>
 
             <div class="panel">
-                <h2>The Anti-Hero</h2>
-                <p>The media paints him as a dangerous monster on the loose, and the police treat him as public enemy number one. But he operates in the dark gray areas of justice—protecting the helpless by dealing with the scum the law can't touch, entirely on his own brutal terms.</p>
+                <h2>The Anti Hero</h2>
+                <p>The media paints him as a dangerous monster and the cops treat him as public enemy number one. But he operates in the dark gray areas of justice. He protects the helpless by dealing with the scum the law ignores doing it entirely on his own brutal terms.</p>
                 <br>
-                <p><strong>Powers & Weaknesses:</strong></p>
+                <p><strong>Powers and Weaknesses:</strong></p>
                 <ul>
-                    <li><strong>Wasp & Tiger Beetle DNA:</strong> Insane sprinting speeds and devastating mandibles.</li>
+                    <li><strong>Wasp and Tiger Beetle DNA:</strong> Insane sprinting speeds and devastating mandibles.</li>
                     <li><strong>Venom Spit:</strong> Paralyzes targets on impact.</li>
                     <li><strong>The Blind Spot:</strong> Extreme speeds make him temporarily blind.</li>
-                    <li><strong>Thermal Vulnerability:</strong> Weak to low temperatures, countered by a warm, moth-inspired thermal cape.</li>
+                    <li><strong>Thermal Vulnerability:</strong> Weak to low temperatures. This is countered by a warm moth inspired thermal cape.</li>
                 </ul>
             </div>
         </div>
 
-        <!-- Inspiration Images Section -->
-        <div class="inspiration-section">
-            <h2>Concept & Reference Inspiration</h2>
-            <div class="inspiration-grid">
+        <!-- Known DNA Grid -->
+        <div class="dna-section">
+            <h2>Subject Genetic Makeup</h2>
+            <div class="dna-grid">
                 
-                <div class="inspiration-card">
-                    <img src="inspo.webp" alt="General Inspiration">
-                    <span>Inspiration Board</span>
-                </div>
-
-                <div class="inspiration-card">
+                <div class="dna-card">
                     <img src="tiger_beetle.webp" alt="Tiger Beetle Reference">
-                    <span>Tiger Beetle DNA</span>
+                    <span>Tiger Beetle</span>
                 </div>
 
-                <div class="inspiration-card">
+                <div class="dna-card">
                     <img src="wasp.webp" alt="Wasp Reference">
-                    <span>Wasp DNA</span>
+                    <span>Wasp</span>
+                </div>
+
+                <!-- Classified Blank 1 -->
+                <div class="dna-card classified-card">
+                    <div class="classified-tag">
+                        <strong>UNKNOWN</strong>
+                        <small>Classified File</small>
+                    </div>
+                </div>
+
+                <!-- Classified Blank 2 -->
+                <div class="dna-card classified-card">
+                    <div class="classified-tag">
+                        <strong>CLASSIFIED</strong>
+                        <small>Only 2 known to public so far</small>
+                    </div>
                 </div>
 
             </div>
+        </div>
+
+        <!-- Huge Uncropped Inspiration Image -->
+        <div class="big-inspo-section">
+            <h2>Design Inspiration Board</h2>
+            <img src="inspo.webp" alt="Full Design Concept Board">
         </div>
 
     </div>
